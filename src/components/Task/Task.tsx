@@ -3,12 +3,7 @@ import { deleteTask, toggleCompleted } from '@/redux/tasksSlice';
 import { MdClose } from 'react-icons/md';
 
 import css from './Task.module.css';
-
-interface TaskProps {
-  id: number;
-  text: string;
-  completed: boolean;
-}
+import { TaskProps } from './type';
 
 export const Task: React.FC<TaskProps> = ({ id, text, completed }) => {
   const dispatch = useDispatch();

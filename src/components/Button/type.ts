@@ -1,4 +1,4 @@
-type Status = 'all' | 'active' | 'completed';
+import { Status } from '@/types';
 
 export interface ButtonProps {
   type: 'button' | 'submit';

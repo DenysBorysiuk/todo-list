@@ -4,9 +4,9 @@ import { Button } from '@/components';
 import { setStatusFilter } from '@/redux/filtersSlice';
 import { getStatusFilter } from '@/redux/selectors';
 
-import css from './StatusFilter.module.css';
+import { Status } from '@/types';
 
-type Status = 'all' | 'active' | 'completed';
+import css from './StatusFilter.module.css';
 
 export const StatusFilter = () => {
   const dispatch = useDispatch();
