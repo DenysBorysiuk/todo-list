@@ -6,3 +6,5 @@ export * from './TaskForm';
 export * from './Task';
 export * from './TaskCounter';
 export * from './StatusFilter';
+export * from './DocumentTitle';
+export * from './RegisterForm';

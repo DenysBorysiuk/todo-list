@@ -1,5 +1,5 @@
 export interface TaskProps {
-  id: number;
+  _id: string;
   text: string;
   completed: boolean;
 }
