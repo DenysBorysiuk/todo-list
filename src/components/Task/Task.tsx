@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import { useAppDispatch } from '@/hooks';
 import { deleteTask, updateStatusTask } from '@/redux/tasks/operations';
 import { MdClose } from 'react-icons/md';
@@ -6,17 +8,22 @@ import css from './Task.module.css';
 import { TaskProps } from './type';
 
 export const Task: React.FC<TaskProps> = ({ _id, text, completed }) => {
+  const [isCompleted, setIsCompleted] = useState(completed);
   const dispatch = useAppDispatch();
 
-  const handleDelete = () => dispatch(deleteTask(_id));
-  const handleToggleStatus = () => dispatch(updateStatusTask({ _id, completed: !completed }));
+  const handleDelete = async () => await dispatch(deleteTask(_id));
+
+  const handleToggleStatus = async () => {
+    setIsCompleted(!isCompleted);
+    await dispatch(updateStatusTask({ _id, completed: isCompleted }));
+  };
 
   return (
     <div className={css.wrapper}>
       <input
         type="checkbox"
         className={css.checkbox}
-        checked={completed}
+        checked={isCompleted}
         onChange={handleToggleStatus}
       />
 

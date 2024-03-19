@@ -9,13 +9,13 @@ import css from './TaskForm.module.css';
 export const TaskForm = () => {
   const dispatch = useAppDispatch();
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     const form = e.currentTarget as HTMLFormElement;
-    const textValue = form.text.value;
+    const text = form.text.value;
 
-    dispatch(addTask(textValue));
+    await dispatch(addTask({ text }));
 
     form.reset();
   };
