@@ -8,3 +8,7 @@ export * from './TaskCounter';
 export * from './StatusFilter';
 export * from './DocumentTitle';
 export * from './RegisterForm';
+export * from './AuthNav';
+export * from './Navigation';
+export * from './UserMenu';
+export * from './LoginForm';

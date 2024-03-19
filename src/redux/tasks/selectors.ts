@@ -1,4 +1,5 @@
-import { State } from '@/types';
+import { RootState } from '@/redux/store';
 
-export const getTasks = (state: State) => state.tasks;
-export const getStatusFilter = (state: State) => state.filters.status;
+export const selectAllTasks = (state: RootState) => state.tasks.items;
+
+export const selectFilter = (state: RootState) => state.filter.status;

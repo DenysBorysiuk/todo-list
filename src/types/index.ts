@@ -1,10 +1,9 @@
 import { Action } from '@reduxjs/toolkit';
 
-export type Status = 'all' | 'active' | 'completed';
+export type FilterStatus = 'all' | 'active' | 'completed';
 
-export interface State {
-  tasks: [];
-  filters: { status: Status };
+export interface FilterState {
+  status: FilterStatus;
 }
 
 export interface ITask {

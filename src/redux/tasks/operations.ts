@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://todo-list-api-by74.onrender.com';
+axios.defaults.baseURL = import.meta.env.VITE_ENDPOINT_URL;
 
 export const fetchTasks = createAsyncThunk('tasks/fetchAll', async (_, thunkAPI) => {
   try {

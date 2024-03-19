@@ -1,10 +1,10 @@
-import { DocumentTitle } from '../components';
-import { RegisterForm } from '../components';
+import { DocumentTitle, RegisterForm } from '@/components';
 
 const Register = () => {
   return (
     <div>
       <DocumentTitle>Registration</DocumentTitle>
+
       <RegisterForm />
     </div>
   );

@@ -2,25 +2,24 @@ import { useForm, FieldValues, SubmitHandler } from 'react-hook-form';
 import toast from 'react-hot-toast';
 
 import { useAppDispatch } from '@/hooks';
-import { registration } from '@/redux/auth/operations';
+import { logIn } from '@/redux/auth/operations';
 
-import css from './RegisterForm.module.css';
+import css from './LoginForm.module.css';
 
 type FormData = {
-  name: string;
   email: string;
   password: string;
 };
 
-export const RegisterForm = () => {
+export const LoginForm = () => {
   const dispatch = useAppDispatch();
   const { register, reset, handleSubmit } = useForm<FormData>();
 
   const onSubmit: SubmitHandler<FieldValues> = async data => {
     try {
-      await dispatch(registration(data)).unwrap();
+      const res = await dispatch(logIn(data)).unwrap();
       reset();
-      toast.success('Registration success');
+      toast.success(`Hello ${res.user.name}`);
     } catch (error) {
       toast.error('Something went wrong');
     }
@@ -28,11 +27,6 @@ export const RegisterForm = () => {
 
   return (
     <form className={css.form} onSubmit={handleSubmit(onSubmit)}>
-      <label className={css.label}>
-        Username
-        <input {...register('name')} />
-      </label>
-
       <label className={css.label}>
         Email
         <input {...register('email')} />
@@ -43,7 +37,7 @@ export const RegisterForm = () => {
         <input {...register('password')} />
       </label>
 
-      <button type="submit">Register</button>
+      <button type="submit">Log In</button>
     </form>
   );
 };

@@ -1,6 +1,5 @@
 import { useEffect, lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
 
 import { Layout } from './components';
 import { PrivateRoute } from '@/routes/PrivateRoute';
@@ -45,7 +44,6 @@ export const App = () => {
           />
         </Route>
       </Routes>
-      <Toaster />
     </>
   );
 };
