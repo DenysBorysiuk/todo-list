@@ -1,5 +1,4 @@
 import { createSlice, Action } from '@reduxjs/toolkit';
-import toast from 'react-hot-toast';
 
 import { fetchTasks, addTask, deleteTask, updateTask } from './operations';
 import { TasksState, RejectedAction } from '@/types';
@@ -48,7 +47,6 @@ const tasksSlice = createSlice({
       .addMatcher(isRejectedAction, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-        toast.error(`Something went wrong`);
       })
       .addMatcher(isFulfilledAction, state => {
         state.isLoading = false;

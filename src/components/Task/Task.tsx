@@ -15,7 +15,7 @@ export const Task: React.FC<TaskProps> = ({ _id, text, completed }) => {
 
   const handleToggleStatus = async () => {
     setIsCompleted(!isCompleted);
-    await dispatch(updateStatusTask({ _id, completed: isCompleted }));
+    await dispatch(updateStatusTask({ _id, completed: !isCompleted }));
   };
 
   return (
