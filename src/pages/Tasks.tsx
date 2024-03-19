@@ -7,6 +7,14 @@ import { useAppDispatch, useAppSelector } from '@/hooks';
 
 import { TaskForm, TaskList, StatusFilter, TaskCounter, DocumentTitle } from '@/components';
 
+const styles = {
+  filter: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    marginBottom: '20px',
+  },
+};
+
 const Tasks = () => {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(selectIsLoading);
@@ -19,9 +27,11 @@ const Tasks = () => {
     <>
       <DocumentTitle>Your tasks</DocumentTitle>
 
-      <TaskCounter />
+      <div style={styles.filter}>
+        <StatusFilter />
 
-      <StatusFilter />
+        <TaskCounter />
+      </div>
 
       <TaskForm />
 
