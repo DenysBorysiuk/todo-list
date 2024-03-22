@@ -1,28 +1,15 @@
 import { useAppSelector } from '@/hooks';
 
-import { selectAllTasks, selectFilter } from '@/redux/tasks/selectors';
+import { selectVisibleTasks } from '@/redux/tasks/selectors';
 
 import { Task } from '@/components';
 
-import { ITask, FilterStatus } from '@/types';
+import { ITask } from '@/types';
 
 import css from './TaskList.module.css';
 
-const getVisibleTasks = (tasks: ITask[], statusFilter: FilterStatus) => {
-  switch (statusFilter) {
-    case 'active':
-      return tasks.filter(task => !task.completed);
-    case 'completed':
-      return tasks.filter(task => task.completed);
-    default:
-      return tasks;
-  }
-};
-
 export const TaskList = () => {
-  const tasks = useAppSelector(selectAllTasks);
-  const statusFilter = useAppSelector(selectFilter);
-  const visibleTasks = getVisibleTasks(tasks, statusFilter);
+  const visibleTasks = useAppSelector(selectVisibleTasks);
 
   return (
     <ul className={css.list}>
